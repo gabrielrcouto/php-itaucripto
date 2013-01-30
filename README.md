@@ -2,7 +2,9 @@ PHP ITAUCRIPTO
 ==============
 
 Versão em PHP da classe Itaucripto, originalmente escrita em Java.
+
 O nome dos métodos foi mantido seguindo o padrão Java, apenas para evitar confusões.
+
 Como a classe em Java foi descompilada, alguns nomes se tornaram nomes genéricos (ex: $paramString1, $paramString2).
 
 Como Usar
@@ -70,6 +72,7 @@ Changelog
 ==============
 
 * v0.1 - 30 de Janeiro de 2013
+
 Classe Java descompilada e traduzida para PHP
 
 Author
