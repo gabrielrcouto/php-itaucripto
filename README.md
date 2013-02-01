@@ -79,7 +79,7 @@ Classe Java descompilada e traduzida para PHP
 
 Correções na função Algoritimo e Inicializa
 
-Teste feito em ambiente de produção, geração de dados criptografados válidade pelo Shopline
+Teste feito em ambiente de produção, geração de dados criptografados validada pelo Itaú Shopline
 
 Author
 ==============
