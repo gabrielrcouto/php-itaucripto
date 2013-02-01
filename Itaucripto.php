@@ -30,7 +30,7 @@ class Itaucripto
 		$this->tipPag = "";
 		$this->codEmp = "";
 	}
-
+	
 	private function Algoritmo($paramString1, $paramString2) 
 	{
 		$k = 0;
@@ -48,8 +48,9 @@ class Itaucripto
 
 			$n = $this->sbox[(($this->sbox[$k] + $this->sbox[$m]) % 256)];
 
-			$i1 = substr($paramString1, ($j - 1), 1) ^ $n;
-			$str = $str . $i1;
+			$i1 = (ord(substr($paramString1, ($j - 1), 1)) ^ $n);
+
+			$str = $str . chr($i1);
 		}
 
 		return $str;
@@ -89,7 +90,7 @@ class Itaucripto
 		$k = 0;
 
 		for ($j = 0; $j <= 255; $j++) {
-			$k = ($k + $this->sbox[$j] + $this->key[$j]) % 256;
+			$k = ($k + $this->sbox[$j] + ord($this->key[$j])) % 256;
 			$i = $this->sbox[$j];
 			$this->sbox[$j] = $this->sbox[$k];
 			$this->sbox[$k] = $i;
@@ -102,17 +103,17 @@ class Itaucripto
 	{
 		return rand(0, 999999999) / 1000000000;
 	}
-
+	
 	private function Converte($paramString)
 	{
-		$c = chr(26.0 * $this->JavaRandom() + 65.0);
+		$c = chr(floor(26.0 * $this->JavaRandom() + 65.0));
 		$str = "" . $c;
-
+		
 		for ($i = 0; $i < strlen($paramString); $i++) {
 			$k = substr($paramString, $i, 1);
-			$j = $k;
+			$j = ord($k);
 			$str = $str . $j;
-			$c = chr(26.0 * $this->JavaRandom() + 65.0);
+			$c = chr(floor(26.0 * $this->JavaRandom() + 65.0));			
 			$str = $str . $c;
 		}
 
@@ -127,7 +128,7 @@ class Itaucripto
 			$str2 = "";
 
 			$c = substr($paramString, $i, 1);
-
+			
 			while (is_numeric($c)) {
 				$str2 = $str2 . substr($paramString, $i, 1);
 				$i += 1;
@@ -245,9 +246,9 @@ class Itaucripto
 		$paramString18 = $this->PreencheBranco($paramString18, 60);
 
 		$str1 = $this->Algoritmo($paramString2 . $paramString3 . $paramString4 . $paramString6 . $paramString7 . $paramString8 . $paramString9 . $paramString10 . $paramString11 . $paramString12 . $paramString13 . $paramString14 . $paramString15 . $paramString16 . $paramString17 . $paramString18, $paramString5);
-
+		
 		$str2 = $this->Algoritmo($paramString1 . $str1, $this->CHAVE_ITAU);
-
+	
 		return $this->Converte($str2);
 	}
 
@@ -308,6 +309,7 @@ class Itaucripto
 	public function decripto($paramString1, $paramString2)
 	{
 		$paramString1 = $this->Desconverte($paramString1);
+		
 		$str = $this->Algoritmo($paramString1, $paramString2);
 
 		$this->codEmp = substr($str, 0, 26);

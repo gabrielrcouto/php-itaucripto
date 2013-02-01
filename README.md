@@ -72,6 +72,10 @@ Changelog
 * v0.1 - 30 de Janeiro de 2013
 Classe Java descompilada e traduzida para PHP
 
+* v0.2 - 01 de Fevereiro de 2013
+Correções na função Algoritimo e Inicializa
+Teste feito em ambiente de produção, geração de dados criptografados válidade pelo Shopline
+
 Author
 ==============
 
