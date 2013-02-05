@@ -104,6 +104,12 @@ class Itaucripto
 		return rand(0, 999999999) / 1000000000;
 	}
 	
+	//Retira as letras acentuadas e substitui pelas não acentuadas
+	private function TiraAcento($str)
+	{
+		return strtr(utf8_decode($str),utf8_decode('ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ'),'SOZsozYYuAAAAAAACEEEEIIIIDNOOOOOOUUUUYsaaaaaaaceeeeiiiionoooooouuuuyy');
+	}
+	
 	private function Converte($paramString)
 	{
 		$c = chr(floor(26.0 * $this->JavaRandom() + 65.0));
@@ -229,7 +235,17 @@ class Itaucripto
 		if (strlen($paramString18) > 60) {
 			return "Erro: observação adicional 3 inválida.";
 		}
-
+		
+		//Retira os acentos
+		$paramString4 = $this->TiraAcento($paramString4);
+		$paramString6 = $this->TiraAcento($paramString6);
+		$paramString9 = $this->TiraAcento($paramString9);
+		$paramString10 = $this->TiraAcento($paramString10);
+		$paramString12 = $this->TiraAcento($paramString12);
+		$paramString16 = $this->TiraAcento($paramString16);
+		$paramString17 = $this->TiraAcento($paramString17);
+		$paramString18 = $this->TiraAcento($paramString18);
+		
 		$paramString4 = $this->PreencheBranco($paramString4, 40);
 		$paramString6 = $this->PreencheBranco($paramString6, 30);
 		$paramString7 = $this->PreencheBranco($paramString7, 2);
