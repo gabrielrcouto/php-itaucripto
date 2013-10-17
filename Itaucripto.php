@@ -31,8 +31,11 @@ class Itaucripto
 		$this->codEmp = "";
 	}
 	
+	//$dados, $chave
 	private function Algoritmo($paramString1, $paramString2) 
 	{
+		$paramString2 = strtoupper($paramString2);
+		
 		$k = 0;
 		$m = 0;
 
@@ -322,8 +325,12 @@ class Itaucripto
 		return $this->Converte($str2);
 	}
 
+	//$dados, $chave
 	public function decripto($paramString1, $paramString2)
 	{
+		//A chave precisa sempre estar em maiusculo
+		$paramString2 = strtoupper($paramString2);
+
 		$paramString1 = $this->Desconverte($paramString1);
 		
 		$str = $this->Algoritmo($paramString1, $paramString2);

@@ -81,6 +81,12 @@ Correções na função Algoritimo e Inicializa
 
 Teste feito em ambiente de produção, geração de dados criptografados validada pelo Itaú Shopline
 
+* v0.3 - 17 de Outubro de 2013
+
+Correções na função Algoritimo - A chave de criptografia precisa estar sempre em maiúsculo, colocada função strtoupper para facilitar
+
+Agora a decripto funciona corretamente
+
 Author
 ==============
 
