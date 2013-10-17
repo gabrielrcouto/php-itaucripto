@@ -17,9 +17,9 @@ Após o cliente preencher os dados, criptografe eles utiliando o seguinte códig
   
   $cripto = new Itaucripto();
   
-  //Coloque o código da empresa
+  //Coloque o código da empresa em MAIÚSCULO
   $codEmp = "J1234567890123456789012345";
-  //Coloque a chave de criptografia
+  //Coloque a chave de criptografia em MAIÚSCULO
   $chave = "ABCD123456ABCD12";
   
   //Preencha as variáveis abaixo com os dados do cliente e da cobrança
