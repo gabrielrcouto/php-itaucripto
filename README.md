@@ -87,6 +87,11 @@ Correções na função Algoritimo - A chave de criptografia precisa estar sempr
 
 Agora a decripto funciona corretamente
 
+* v0.4 - 28 de Maio de 2014
+
+Correção do uso da função substr dentro da função decripto. (Obrigado Jorge Marmion e lucaspacheco).
+
+
 Author
 ==============
 

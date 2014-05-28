@@ -6,10 +6,10 @@
  * Tem como base a classe Itaucripto feita em Java
  *
  * @author Gabriel Rodrigues Couto - @gabrielrcouto
- * @link 
+ * @link
  */
 
-class Itaucripto 
+class Itaucripto
 {
 	public $sbox;
 	public $key;
@@ -21,7 +21,7 @@ class Itaucripto
 	public $TAM_CHAVE = 16;
 	public $dados;
 
-	function __construct() 
+	function __construct()
 	{
 		$this->sbox = array();
 		$this->key = array();
@@ -30,12 +30,12 @@ class Itaucripto
 		$this->tipPag = "";
 		$this->codEmp = "";
 	}
-	
+
 	//$dados, $chave
-	private function Algoritmo($paramString1, $paramString2) 
+	private function Algoritmo($paramString1, $paramString2)
 	{
 		$paramString2 = strtoupper($paramString2);
-		
+
 		$k = 0;
 		$m = 0;
 
@@ -106,23 +106,23 @@ class Itaucripto
 	{
 		return rand(0, 999999999) / 1000000000;
 	}
-	
+
 	//Retira as letras acentuadas e substitui pelas não acentuadas
 	private function TiraAcento($str)
 	{
 		return strtr(utf8_decode($str),utf8_decode('ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ'),'SOZsozYYuAAAAAAACEEEEIIIIDNOOOOOOUUUUYsaaaaaaaceeeeiiiionoooooouuuuyy');
 	}
-	
+
 	private function Converte($paramString)
 	{
 		$c = chr(floor(26.0 * $this->JavaRandom() + 65.0));
 		$str = "" . $c;
-		
+
 		for ($i = 0; $i < strlen($paramString); $i++) {
 			$k = substr($paramString, $i, 1);
 			$j = ord($k);
 			$str = $str . $j;
-			$c = chr(floor(26.0 * $this->JavaRandom() + 65.0));			
+			$c = chr(floor(26.0 * $this->JavaRandom() + 65.0));
 			$str = $str . $c;
 		}
 
@@ -137,7 +137,7 @@ class Itaucripto
 			$str2 = "";
 
 			$c = substr($paramString, $i, 1);
-			
+
 			while (is_numeric($c)) {
 				$str2 = $str2 . substr($paramString, $i, 1);
 				$i += 1;
@@ -238,7 +238,7 @@ class Itaucripto
 		if (strlen($paramString18) > 60) {
 			return "Erro: observação adicional 3 inválida.";
 		}
-		
+
 		//Retira os acentos
 		$paramString4 = $this->TiraAcento($paramString4);
 		$paramString6 = $this->TiraAcento($paramString6);
@@ -248,7 +248,7 @@ class Itaucripto
 		$paramString16 = $this->TiraAcento($paramString16);
 		$paramString17 = $this->TiraAcento($paramString17);
 		$paramString18 = $this->TiraAcento($paramString18);
-		
+
 		$paramString4 = $this->PreencheBranco($paramString4, 40);
 		$paramString6 = $this->PreencheBranco($paramString6, 30);
 		$paramString7 = $this->PreencheBranco($paramString7, 2);
@@ -265,13 +265,13 @@ class Itaucripto
 		$paramString18 = $this->PreencheBranco($paramString18, 60);
 
 		$str1 = $this->Algoritmo($paramString2 . $paramString3 . $paramString4 . $paramString6 . $paramString7 . $paramString8 . $paramString9 . $paramString10 . $paramString11 . $paramString12 . $paramString13 . $paramString14 . $paramString15 . $paramString16 . $paramString17 . $paramString18, $paramString5);
-		
+
 		$str2 = $this->Algoritmo($paramString1 . $str1, $this->CHAVE_ITAU);
-	
+
 		return $this->Converte($str2);
 	}
 
-	public function geraCripto($paramString1, $paramString2, $paramString3) 
+	public function geraCripto($paramString1, $paramString2, $paramString3)
 	{
 		if (strlen($paramString1) != $this->TAM_COD_EMP) {
 			return "Erro: tamanho do codigo da empresa diferente de 26 posições.";
@@ -279,7 +279,7 @@ class Itaucripto
 
 		if (strlen($paramString3) != $this->TAM_CHAVE) {
 			return "Erro: tamanho da chave da chave diferente de 16 posições.";
-		} 
+		}
 
 		$paramString2 = trim($paramString2);
 
@@ -302,7 +302,7 @@ class Itaucripto
 
 		if (strlen($paramString4) != $this->TAM_CHAVE) {
 			return "Erro: tamanho da chave da chave diferente de 16 posições.";
-		}  
+		}
 
 		if ((strlen($paramString2) < 1) || (strlen($paramString2) > 8)) {
 			return "Erro: número do pedido inválido.";
@@ -332,14 +332,14 @@ class Itaucripto
 		$paramString2 = strtoupper($paramString2);
 
 		$paramString1 = $this->Desconverte($paramString1);
-		
+
 		$str = $this->Algoritmo($paramString1, $paramString2);
 
 		$this->codEmp = substr($str, 0, 26);
 
-		$this->numPed = substr($str, 26, 34);
+		$this->numPed = substr($str, 26, 8);
 
-		$this->tipPag = substr($str, 34, 36);
+		$this->tipPag = substr($str, 34, 2);
 
 		return $str;
 	}
