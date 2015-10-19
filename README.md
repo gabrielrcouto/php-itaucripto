@@ -10,7 +10,7 @@ Como a classe em Java foi descompilada, alguns nomes se tornaram nomes genérico
 Como Usar
 ==============
 
-Após o cliente preencher os dados, criptografe eles utiliando o seguinte código:
+Após o cliente preencher os dados, criptografe eles utilizando o seguinte código:
 
 ```php
   include "Itaucripto.php";
