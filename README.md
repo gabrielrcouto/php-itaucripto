@@ -7,6 +7,13 @@ O nome dos métodos foi mantido seguindo o padrão Java, apenas para evitar conf
 
 Como a classe em Java foi descompilada, alguns nomes se tornaram nomes genéricos (ex: $paramString1, $paramString2).
 
+Dúvidas
+==============
+
+Caso tenha alguma dúvida, crie uma issue nesse repositório. Algumas pessoas me contactaram pelas redes sociais, porém fica mais fácil deixarmos documentadas as perguntas/respostas aqui no Github, assim ajudamos mais pessoas.
+
+Criei essa biblioteca em 2013 para um pequeno e-commerce, sem a ajuda do Itaú ou qualquer relação com eles, por isso, não consigo fornecer suporte para mensagens de erro do backend deles, somente para a forma como deve ser utilizada essa biblioteca (e espero que ainda esteja funcionando).
+
 Como Usar
 ==============
 
