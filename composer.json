@@ -1,0 +1,18 @@
+{
+    "name": "gabrielrcouto/php-itaucripto",
+    "description": "PHP ITAUCRIPTO",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "itau",
+        "cripto"
+    ],
+    "homepage": "https://github.com/gabrielrcouto/php-itaucripto",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Itaucripto\\": ""
+        }
+    }
+}
