@@ -1,5 +1,5 @@
 {
-    "name": "gabrielrcouto/php-itaucripto",
+    "name": "ControleOnline/php-itaucripto",
     "description": "PHP ITAUCRIPTO",
     "type": "project",
     "license": "BSD-3-Clause",
@@ -7,7 +7,7 @@
         "itau",
         "cripto"
     ],
-    "homepage": "https://github.com/gabrielrcouto/php-itaucripto",
+    "homepage": "https://github.com/ControleOnline/php-itaucripto",
     "require": {
     },
     "autoload": {
