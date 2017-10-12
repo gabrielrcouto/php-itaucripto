@@ -8,23 +8,22 @@
 
 	$pedido = "1234";
 	$valor = "1,99";
-	$observacao = "Essa é uma observação";
-	$nomeSacado = "José Antônio";
+	$observacao = "Essa ï¿½ uma observaï¿½ï¿½o";
+	$nomeSacado = "Josï¿½ Antï¿½nio";
 	$codigoInscricao = "01";
 	$numeroInscricao = "82938674341";
-	$enderecoSacado = "Rua das Hortências";
+	$enderecoSacado = "Rua das Hortï¿½ncias";
 	$bairroSacado = "Jardim das Flores";
 	$cepSacado = "13080040";
 	$cidadeSacado = "Campinas";
 	$estadoSacado = "SP";
 	$dataVencimento = "31122013";
 	$urlRetorna = "retorno/retorno.php";
-	$obsAd1 = "Aqui vai a observação 1";
-	$obsAd2 = "Aqui vai a observação 2";
-	$obsAd3 = "Aqui vai a observação 3";
+	$obsAd1 = "Aqui vai a observaï¿½ï¿½o 1";
+	$obsAd2 = "Aqui vai a observaï¿½ï¿½o 2";
+	$obsAd3 = "Aqui vai a observaï¿½ï¿½o 3";
 	
 	$dados = $cripto->geraDados($codEmp,$pedido,$valor,$observacao,$chave,$nomeSacado,$codigoInscricao,$numeroInscricao,$enderecoSacado,$bairroSacado,$cepSacado,$cidadeSacado,$estadoSacado,$dataVencimento,$urlRetorna,$obsAd1,$obsAd2,$obsAd3);
 	
 	echo $dados;
 
-?>
