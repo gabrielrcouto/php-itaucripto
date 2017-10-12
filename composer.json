@@ -11,11 +11,8 @@
     "require": {
     },
     "autoload": {
-        "psr-4": {
-            "Itaucripto\\": ""
-        },
-        "classmap": [
-            "Itaucripto.php"
-        ]
+        "psr-0": {
+            "Itaucripto\\": "./"
+        }
     }
 }
