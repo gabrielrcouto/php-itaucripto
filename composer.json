@@ -10,9 +10,12 @@
     "homepage": "https://github.com/ControleOnline/php-itaucripto",
     "require": {
     },
-    "autoload": {
-        "psr-0": {
-            "Itaucripto\\": "./"
-        }
+    "autoload": {        
+        "psr-4": {
+            "Itaucripto\\": ""
+        },
+        "classmap": [
+            "Itaucripto.php"
+        ]
     }
 }
