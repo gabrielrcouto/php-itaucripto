@@ -324,6 +324,20 @@ class Itaucripto
 
 		return $this->Converte($str2);
 	}
+	
+	//$dados DC, $chave
+	public function revertecripto($paramString1, $paramString2)
+	{
+		//A chave precisa sempre estar em maiusculo
+		$paramString2 = strtoupper($paramString2);
+
+		$paramString1 = $this->Desconverte($paramString1);
+
+		$str = $this->Algoritmo($paramString1, $this->CHAVE_ITAU);
+		$str = $this->Algoritmo( substr($str, 26), $paramString2);
+
+		return $str;
+	}
 
 	//$dados, $chave
 	public function decripto($paramString1, $paramString2)
@@ -333,8 +347,8 @@ class Itaucripto
 
 		$paramString1 = $this->Desconverte($paramString1);
 
-		$str = $this->Algoritmo($paramString1, $paramString2);
-
+		$str = $this->Algoritmo( $paramString1, $paramString2);
+		
 		$this->codEmp = substr($str, 0, 26);
 
 		$this->numPed = substr($str, 26, 8);
